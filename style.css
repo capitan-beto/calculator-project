@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;1,200;1,400&family=Silkscreen&display=swap');
+
+*{
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+body{
+    background-image: url(../calculator-project/images/galaxy-background.jpg);
+    height: 100vh;
+    width: 100vw;
+    flex: 0 0 100vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.container{
+    background-color: red;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    width: 30vw;
+    height: 85vh;
+
+}
+
+.screen{
+    background-color: yellow;
+    height: 25vh;
+    width: 28vw;
+}
+
+.buttons{
+    background-color: black;
+    display: inline-grid;
+    justify-content: space-evenly;
+    align-items: center;
+    grid-template-columns: auto auto auto auto;
+    height: 50vh;
+    width: 28vw;
+}
+
+button{
+    width: 4.7rem;
+    height: 4.7rem;
+    background-color: #413F42;
+    border-radius: 50%;
+    color: white;
+    font-size: 2rem;
+    border: none;
+}
+
+.item17{
+    grid-column: 1;
+    grid-column-end: 3;
+    width: 10rem;
+    border-radius: 2rem;
+}
