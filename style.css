@@ -20,15 +20,15 @@ body{
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
-    width: 30vw;
     height: 85vh;
+    flex: 0 0 23vw;
 
 }
 
 .screen{
     background-color: yellow;
     height: 25vh;
-    width: 28vw;
+    width: 21vw;
 }
 
 .buttons{
@@ -38,7 +38,7 @@ body{
     align-items: center;
     grid-template-columns: auto auto auto auto;
     height: 50vh;
-    width: 28vw;
+    width: 21vw;
 }
 
 button{
@@ -49,11 +49,33 @@ button{
     color: white;
     font-size: 2rem;
     border: none;
+    line-height: 4.7rem;
+}
+
+button:hover{
+    background-color: rgba(115, 119, 123, .4);
+}
+
+.light-gray{
+    background-color: #7F8487;
+}
+
+.light-gray:hover{
+    background-color: rgba(223, 223, 222, .4);
+   /*background-color: rgba(127, 132, 135, .8);*/
+}
+
+.yellow{
+    background-color: #FFB200;
+}
+
+.yellow:hover{
+    background-color: #FFCB42;
 }
 
 .item17{
     grid-column: 1;
     grid-column-end: 3;
-    width: 10rem;
-    border-radius: 2rem;
+    width: 10.5rem;
+    border-radius: 1.9rem;
 }
