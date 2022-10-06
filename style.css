@@ -39,7 +39,7 @@ body{
 
 .screen div{
     height: 50%;
-    width: 100%;
+    width: 100%;    
 }
 
 .screen p{
@@ -90,7 +90,7 @@ button:hover{
     background-color: #FFCB42;
 }
 
-.item17{
+.zero{
     grid-column: 1;
     grid-column-end: 3;
     width: 10.5rem;
