@@ -15,6 +15,7 @@ function divide(a, b){
 }
 
 // Display:
+
 const currOperation = document.querySelector(".curr-operation");
 currOperation.textContent = "IT'S ALIVE!"
 
@@ -92,6 +93,32 @@ const dot = document.querySelector(".dot");
 dot.addEventListener("click", () => {
     console.log(".");
 })
+
+const multi = document.querySelector(".multiply");
+multi.addEventListener("click", () => {
+    console.log("x");
+})
+
+const division = document.querySelector(".divide");
+division.addEventListener("click", () => {
+    console.log("÷")
+})
+
+const clean = document.querySelector(".clean");
+clean.addEventListener("click", () => {
+    console.log("clean");
+})
+
+const puto = document.querySelector(".puto");
+puto.addEventListener("click", () => {
+    console.log("puto el que lee");
+})
+
+const undef = document.querySelector(".undef");
+undef.addEventListener("click", () => {
+    console.log("undef");
+})
+
 
 
 
