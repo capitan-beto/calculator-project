@@ -1,5 +1,5 @@
 let input = "";
-let result = ""
+let result = "";
 
 
 
@@ -13,28 +13,49 @@ function subtract (a, b){
     return splitStr[0] - splitStr[1];
 }
 
-function multiply(a, b){
-    return splitStr[0] * splitStr[1];
+function multiply() {
+    const secondResult = [...splitStr];
+    const multIndex = splitStr.indexOf("x");
+    let multiFirst = multIndex - 1;
+    let multiTwo = multIndex + 1;
+    let secondOp = splitStr[multiFirst] * splitStr[multiTwo];
+    let multResult = splitStr.splice(multiFirst, 3, secondOp);
+    return splitStr;
 }
 
-/*function divide(){
-    
-    let divOne = splitStr[divIndex - 1];
-    let divTwo = splitStr[divIndex + 1];
-    return divOne / divTwo;
+/*function divide() {
+    let firstResult = [...splitStr];
+    const divIndex = firstResult.indexOf("/");
+    let divFirst = divIndex - 1;
+    let divTwo = divIndex + 1;
+    let firstOp =  firstResult[divFirst] / firstResult[divTwo];
+    let divResult =  firstResult.splice(divFirst, 3, firstOp);
+    return firstResult;
 }*/
+
 
 function operation(input) {
     let splitStr = input.split(",");
-    const divIndex = splitStr.indexOf("/");
-    let divOne = divIndex - 1;
-    let divTwo = divIndex + 1;
-    let result = splitStr[divOne] / splitStr[divTwo];
-    console.log(splitStr);
-    console.log(result);
+    if(splitStr.includes('/') === true){
+        let resultDiv = splitStr[0] / splitStr[2];
+        return currOperation.textContent = resultDiv;
+    } else if (splitStr.includes('x') === true){
+        let resultMulti = splitStr[0] * splitStr[2];
+        return currOperation.textContent = resultMulti;
+    } else if (splitStr.includes('-') === true){
+        let resultSub = splitStr[0] - splitStr[2];
+        return currOperation.textContent = resultSub;
+    } else if (splitStr.includes('+') === true){
+        let sumArr = splitStr.splice(1, 1);
+        let resultSum =  splitStr.reduce((accumulator, currentValue) =>{
+            return accumulator + currentValue;
+        }, 0);
+        return console.log(resultSum);
+    }
 }
-    
 
+
+    
 
 // Display:
 
@@ -42,7 +63,7 @@ const currOperation = document.querySelector(".curr-operation");
 currOperation.textContent = "";
 
 const prevOperation = document.querySelector(".prev-operation");
-prevOperation.textContent = "I'M ALIVE TOO";
+prevOperation.textContent = "";
 
 //buttons selector
 
