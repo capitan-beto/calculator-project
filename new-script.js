@@ -3,31 +3,36 @@ const buttons = document.querySelectorAll("button");
 
 buttons.forEach((item) => {
     item.onclick = () => {
-        if (item.id == "clear"){
-            display.innerText = "";
+        let newOp = display.innerText.split(/[+-/*]/);
+        if (newOp.length > 1 && item.className == "yellow btn-operator"){
+            operation();
         } else if (item.id == "backspace"){
             let string = display.innerText.toString();
             display.innerText = string.substr(0 , string.length - 1);
         } else if (display.innerText != "" && item.id == "equal"){
-            if (display.innerText.includes("-")){
-                return subtraction();
-            } else if(display.innerText.includes("/")){
-                return division();
-            } else if(display.innerText.includes("*")){
-                return multiply();
-            } else if(display.innerText.includes("+")){
-                return sum();
-            }
+            operation();
         } else if (display.innerText == "" && item.id == "equal"){
             display.innerText ="Empty!";
             setTimeout(() => (display.innerText = ""), 2000);
-        } else if (display.innerText.includes("+") && item.id == "+"){
-            return sum();
-        } else{
+        } else if(item.id == "clear"){
+            display.innerText = "";
+        } else {
             display.innerText += item.id;
         }
     }
 })
+
+function operation(){
+    if (display.innerText.includes("-")){
+        return subtraction();
+    } else if(display.innerText.includes("/")){
+        return division();
+    } else if(display.innerText.includes("*")){
+        return multiply();
+    } else if(display.innerText.includes("+")){
+        return sum();
+    }
+}
 
 function subtraction(){
     let operands = display.innerText.split("-");
