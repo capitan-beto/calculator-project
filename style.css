@@ -39,7 +39,11 @@ body{
 
 .screen div{
     height: 50%;
-    width: 100%;    
+    width: 100%;
+    font-family: 'Silkscreen', cursive;
+    color: white;
+    font-size: 2.5rem;
+    text-align: right;    
 }
 
 .screen p{
