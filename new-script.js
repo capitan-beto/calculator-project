@@ -1,10 +1,13 @@
-const display = document.querySelector("#display");
+    const display = document.querySelector("#display");
 const buttons = document.querySelectorAll("button");
 
 buttons.forEach((item) => {
     item.onclick = () => {
-        let newOp = display.innerText.split(/[+-/*]/);
-        if (newOp.length > 1 && item.className == "yellow btn-operator"){
+        //let newOp = display.innerText.split(/[+-/*]/);
+        if (display.innerText.includes("+") && item.className == "yellow btn-operator" ||
+        display.innerText.includes("-") && item.className == "yellow btn-operator" ||
+        display.innerText.includes("/") && item.className == "yellow btn-operator" ||
+        display.innerText.includes("*") && item.className == "yellow btn-operator" ){
             operation();
         } else if (item.id == "backspace"){
             let string = display.innerText.toString();
@@ -14,6 +17,7 @@ buttons.forEach((item) => {
         } else if (display.innerText == "" && item.id == "equal"){
             display.innerText ="Empty!";
             setTimeout(() => (display.innerText = ""), 2000);
+
         } else if(item.id == "clear"){
             display.innerText = "";
         } else {
@@ -21,6 +25,7 @@ buttons.forEach((item) => {
         }
     }
 })
+
 
 function operation(){
     if (display.innerText.includes("-")){
