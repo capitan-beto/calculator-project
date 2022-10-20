@@ -32,8 +32,6 @@ body{
     width: 20vw;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-end;
     overflow: hidden;
 }
 
@@ -43,14 +41,8 @@ body{
     font-family: 'Silkscreen', cursive;
     color: white;
     font-size: 2rem;
-    text-align: right;    
-}
-
-.screen p{
-    font-family: 'Silkscreen', cursive;
-    color: white;
-    font-size: 2.5rem;
     text-align: right;
+    padding-top: 1rem;
 }
 
 .buttons{

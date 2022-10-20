@@ -1,27 +1,35 @@
-    const display = document.querySelector("#display");
+const display = document.querySelector("#display");
+const upperDisplay = document.querySelector("#upper-display")
 const buttons = document.querySelectorAll("button");
 
 buttons.forEach((item) => {
     item.onclick = () => {
         if (display.innerText.includes("+") && item.className == "yellow btn-operator" ||
-        display.innerText.includes("-") && item.className == "yellow btn-operator" ||
-        display.innerText.includes("/") && item.className == "yellow btn-operator" ||
-        display.innerText.includes("*") && item.className == "yellow btn-operator" ){
+            display.innerText.includes("-") && item.className == "yellow btn-operator" ||
+            display.innerText.includes("/") && item.className == "yellow btn-operator" ||
+            display.innerText.includes("*") && item.className == "yellow btn-operator" ){
             operation();
+            upperDisplay.textContent = display.innerText;
+
         } else if (item.id == "backspace"){
             let string = display.innerText.toString();
             display.innerText = string.substr(0 , string.length - 1);
+
         } else if (display.innerText != "" && item.id == "equal"){
             operation();
+
         } else if (display.innerText == "" && item.id == "equal"){
             display.innerText ="Empty!";
             setTimeout(() => (display.innerText = ""), 2000);
 
         } else if(item.id == "clear"){
             display.innerText = "";
+            upperDisplay.innerText = "";
+
         } else if (item.id == "puto") {
             display.innerText = "Puto el que lee";
             setTimeout(() => (display.innerText = ""), 1000);
+
         } else {
             display.innerText += item.id;
         }
