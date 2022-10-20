@@ -40,7 +40,7 @@ body{
     width: 100%;
     font-family: 'Silkscreen', cursive;
     color: white;
-    font-size: 2rem;
+    font-size: 2.5vw;
     text-align: right;
     padding-top: 1rem;
 }
@@ -56,14 +56,14 @@ body{
 }
 
 button{
-    width: 4.7rem;
-    height: 4.7rem;
+    width: 4.5vw;
+    height: 4.5vw;
     background-color: #413F42;
     border-radius: 50%;
     color: white;
-    font-size: 2rem;
+    font-size: 2vw;
     border: none;
-    line-height: 4.7rem;
+    line-height: 4.5vw;
 }
 
 button:hover{
@@ -89,6 +89,6 @@ button:hover{
 .zero{
     grid-column: 1;
     grid-column-end: 3;
-    width: 10.5rem;
+    width: 10vw;
     border-radius: 1.9rem;
 }

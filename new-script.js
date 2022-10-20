@@ -27,8 +27,10 @@ buttons.forEach((item) => {
             upperDisplay.innerText = "";
 
         } else if (item.id == "puto") {
-            display.innerText = "Puto el que lee";
-            setTimeout(() => (display.innerText = ""), 1000);
+            upperDisplay.innerText = "puto"
+            display.innerText = "el que lee";
+            setTimeout(() => (display.innerText = "",
+            upperDisplay. innerText = ""), 1000);
 
         } else {
             display.innerText += item.id;
