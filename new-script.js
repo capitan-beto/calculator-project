@@ -19,9 +19,12 @@ buttons.forEach((item) => {
 
         } else if(item.id == "clear"){
             display.innerText = "";
+        } else if (item.id == "puto") {
+            display.innerText = "Puto el que lee";
+            setTimeout(() => (display.innerText = ""), 1000);
         } else {
             display.innerText += item.id;
-        } 
+        }
     }
 })
 
