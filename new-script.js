@@ -9,11 +9,12 @@ buttons.forEach((item) => {
             display.innerText.includes("/") && item.className == "yellow btn-operator" ||
             display.innerText.includes("*") && item.className == "yellow btn-operator" ){
             operation();
-            if(isNaN(display.innerText)){
+            if(isNaN(display.innerText) || display.innerText == Infinity){
                 display.innerText = "Syntax error";
                 upperDisplay.innerText = "";
                 setTimeout(() => (display.innerText = ""), 1000);
             } else {
+                display.innerText += item.id;
                 upperDisplay.textContent = display.innerText;
             }
             
