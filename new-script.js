@@ -24,7 +24,9 @@ buttons.forEach((item) => {
             display.innerText = string.substr(0 , string.length - 1);
 
         } else if (display.innerText != "" && item.id == "equal"){
-            operation();
+            if (display.innerText.includes("+")){
+                operation();
+            }
 
         } else if (display.innerText == "" && item.id == "equal"){
             display.innerText ="Empty!";
