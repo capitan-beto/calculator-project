@@ -9,7 +9,14 @@ buttons.forEach((item) => {
             display.innerText.includes("/") && item.className == "yellow btn-operator" ||
             display.innerText.includes("*") && item.className == "yellow btn-operator" ){
             operation();
-            upperDisplay.textContent = display.innerText;
+            if(isNaN(display.innerText)){
+                display.innerText = "Syntax error";
+                upperDisplay.innerText = "";
+                setTimeout(() => (display.innerText = ""), 1000);
+            } else {
+                upperDisplay.textContent = display.innerText;
+            }
+            
 
         } else if (item.id == "backspace"){
             let string = display.innerText.toString();
@@ -54,24 +61,20 @@ function operation(){
 function subtraction(){
     let operands = display.innerText.split("-");
     let subtract = operands[0] - operands[1];
-    display.innerText = subtract;
+    display.innerText = Math.round(subtract * 100) / 100;
 }
 
 function division(){
     let operands = display.innerText.split("/");
     let division = operands[0] / operands[1];
-    if(division == NaN || division == Infinity){
-        display.innerText = "Syntax error";
-        setTimeout(() => (display.innerText = ""), 1000);
-    } else{
-        display.innerText = division;
-    }
+    display.innerText = Math.round(division * 100) / 100;
 }
 
 function multiply(){
     let operands = display.innerText.split("*");
     let multiply = operands[0] * operands[1];
-    display.innerText = multiply;
+    display.innerText = Math.round(multiply * 100) / 100;
+    
 }
 
 function sum(){
@@ -80,7 +83,8 @@ function sum(){
     const sum = operands.reduce((accumulator, currentValue) => {
         return accumulator + currentValue;
     }, 0)
-    display.innerText = sum;
+    display.innerText = Math.round(sum * 100) / 100;
+    
 }
 
 
