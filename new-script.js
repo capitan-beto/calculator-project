@@ -3,7 +3,6 @@ const buttons = document.querySelectorAll("button");
 
 buttons.forEach((item) => {
     item.onclick = () => {
-        //let newOp = display.innerText.split(/[+-/*]/);
         if (display.innerText.includes("+") && item.className == "yellow btn-operator" ||
         display.innerText.includes("-") && item.className == "yellow btn-operator" ||
         display.innerText.includes("/") && item.className == "yellow btn-operator" ||
@@ -22,7 +21,7 @@ buttons.forEach((item) => {
             display.innerText = "";
         } else {
             display.innerText += item.id;
-        }
+        } 
     }
 })
 
@@ -48,7 +47,12 @@ function subtraction(){
 function division(){
     let operands = display.innerText.split("/");
     let division = operands[0] / operands[1];
-    display.innerText = division;
+    if(division == NaN || division == Infinity){
+        display.innerText = "Syntax error";
+        setTimeout(() => (display.innerText = ""), 1000);
+    } else{
+        display.innerText = division;
+    }
 }
 
 function multiply(){
