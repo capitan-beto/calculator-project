@@ -4,10 +4,20 @@ const buttons = document.querySelectorAll("button");
 
 buttons.forEach((item) => {
     item.onclick = () => {
-        if (display.innerText.includes("+") && item.className == "yellow btn-operator" ||
-            display.innerText.includes("-") && item.className == "yellow btn-operator" ||
-            display.innerText.includes("/") && item.className == "yellow btn-operator" ||
-            display.innerText.includes("*") && item.className == "yellow btn-operator" ){
+        opDisplay(item);
+    }
+})
+
+window.addEventListener("keydown", function(e) {
+    const item = document.querySelector(`button[data-key="${e.keyCode}"]`);
+    opDisplay(item);
+})
+
+function opDisplay(item){
+    if (display.innerText.includes("+") && item.className == "yellow btn-operator" ||
+        display.innerText.includes("-") && item.className == "yellow btn-operator" ||
+        display.innerText.includes("/") && item.className == "yellow btn-operator" ||
+        display.innerText.includes("*") && item.className == "yellow btn-operator" ){
             operation();
             if(isNaN(display.innerText) || display.innerText == Infinity){
                 display.innerText = "Syntax error";
@@ -19,81 +29,33 @@ buttons.forEach((item) => {
             }
             
 
-        } else if (item.id == "backspace"){
-            let string = display.innerText.toString();
-            display.innerText = string.substr(0 , string.length - 1);
-
-        } else if (display.innerText != "" && item.id == "equal"){
-            operation();
-            upperDisplay.textContent = display.innerText;
-
-        } else if (display.innerText == "" && item.id == "equal"){
-            display.innerText ="Empty!";
-            setTimeout(() => (display.innerText = ""), 2000);
-
-        } else if(item.id == "clear"){
-            display.innerText = "";
-            upperDisplay.innerText = "";
-
-        } else if (item.id == "puto") {
-            upperDisplay.innerText = "puto"
-            display.innerText = "el que lee";
-            setTimeout(() => (display.innerText = "",
-            upperDisplay. innerText = ""), 1000);
-
-        } else {
-            display.innerText += item.id;
-        }
-    }
-})
-
-window.addEventListener("keydown", function(e) {
-    const key = document.querySelector(`button[data-key="${e.keyCode}"]`);
-    if(key === null) {
-        return;
-
-    } else if (display.innerText.includes("+") && key.className == "yellow btn-operator" ||
-            display.innerText.includes("-") && key.className == "yellow btn-operator" ||
-            display.innerText.includes("/") && key.className == "yellow btn-operator" ||
-            display.innerText.includes("*") && key.className == "yellow btn-operator" ){
-            operation();
-            if(isNaN(display.innerText) || display.innerText == Infinity){
-                display.innerText = "Syntax error";
-                upperDisplay.innerText = "";
-                setTimeout(() => (display.innerText = ""), 1000);
-            } else {
-                display.innerText += key.id;
-                upperDisplay.textContent = display.innerText;
-            }
-            
-
-    } else if (key.id == "backspace"){
+    } else if (item.id == "backspace"){
         let string = display.innerText.toString();
-            display.innerText = string.substr(0 , string.length - 1);
+        display.innerText = string.substr(0 , string.length - 1);
 
-    } else if (display.innerText != "" && key.id == "equal"){
+    } else if (display.innerText != "" && item.id == "equal"){
         operation();
         upperDisplay.textContent = display.innerText;
 
-    } else if (display.innerText == "" && key.id == "equal"){
+    } else if (display.innerText == "" && item.id == "equal"){
         display.innerText ="Empty!";
         setTimeout(() => (display.innerText = ""), 2000);
 
-    } else if(key.id == "clear"){
+    } else if(item.id == "clear"){
         display.innerText = "";
         upperDisplay.innerText = "";
 
-    } else if (key.id == "puto") {
+    } else if (item.id == "puto") {
         upperDisplay.innerText = "puto"
         display.innerText = "el que lee";
         setTimeout(() => (display.innerText = "",
         upperDisplay. innerText = ""), 1000);
 
     } else {
-        display.innerText += key.id;
+        display.innerText += item.id;
     }
     
-})
+}
 
 
 function operation(){
