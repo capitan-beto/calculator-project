@@ -47,6 +47,54 @@ buttons.forEach((item) => {
     }
 })
 
+window.addEventListener("keydown", function(e) {
+    const key = document.querySelector(`button[data-key="${e.keyCode}"]`);
+    if(key === null) {
+        return;
+
+    } else if (display.innerText.includes("+") && key.className == "yellow btn-operator" ||
+            display.innerText.includes("-") && key.className == "yellow btn-operator" ||
+            display.innerText.includes("/") && key.className == "yellow btn-operator" ||
+            display.innerText.includes("*") && key.className == "yellow btn-operator" ){
+            operation();
+            if(isNaN(display.innerText) || display.innerText == Infinity){
+                display.innerText = "Syntax error";
+                upperDisplay.innerText = "";
+                setTimeout(() => (display.innerText = ""), 1000);
+            } else {
+                display.innerText += key.id;
+                upperDisplay.textContent = display.innerText;
+            }
+            
+
+    } else if (key.id == "backspace"){
+        let string = display.innerText.toString();
+            display.innerText = string.substr(0 , string.length - 1);
+
+    } else if (display.innerText != "" && key.id == "equal"){
+        operation();
+        upperDisplay.textContent = display.innerText;
+
+    } else if (display.innerText == "" && key.id == "equal"){
+        display.innerText ="Empty!";
+        setTimeout(() => (display.innerText = ""), 2000);
+
+    } else if(key.id == "clear"){
+        display.innerText = "";
+        upperDisplay.innerText = "";
+
+    } else if (key.id == "puto") {
+        upperDisplay.innerText = "puto"
+        display.innerText = "el que lee";
+        setTimeout(() => (display.innerText = "",
+        upperDisplay. innerText = ""), 1000);
+
+    } else {
+        display.innerText += key.id;
+    }
+    
+})
+
 
 function operation(){
     if (display.innerText.includes("-")){
