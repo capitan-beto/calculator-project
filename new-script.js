@@ -25,6 +25,7 @@ buttons.forEach((item) => {
 
         } else if (display.innerText != "" && item.id == "equal"){
             operation();
+            upperDisplay.textContent = display.innerText;
 
         } else if (display.innerText == "" && item.id == "equal"){
             display.innerText ="Empty!";
@@ -85,7 +86,6 @@ function sum(){
         return accumulator + currentValue;
     }, 0)
     display.innerText = Math.round(sum * 100) / 100;
-    
 }
 
 
