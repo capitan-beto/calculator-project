@@ -101,7 +101,7 @@ function sum(){
 
 const toggleSpidey = document.querySelector("#puto");
 toggleSpidey.onclick = () => {
-    document.body.style.background = "url('./calculator-project/images/ok.jpg')";
+    document.body.style.background = "url(https://i.kym-cdn.com/photos/images/facebook/000/307/686/60e.png)";
     upperDisplay.innerText = "puto"
     display.innerText = "el que lee";
     setTimeout(() => (document.body.style.background = "",
