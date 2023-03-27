@@ -45,12 +45,7 @@ function opDisplay(item){
         display.innerText = "";
         upperDisplay.innerText = "";
 
-    } else if (item.id == "puto") {
-        upperDisplay.innerText = "puto"
-        display.innerText = "el que lee";
-        setTimeout(() => (display.innerText = "",
-        upperDisplay. innerText = ""), 1000);
-
+        
     } else {
         display.innerText += item.id;
     }
@@ -99,11 +94,11 @@ function sum(){
 }
 
 
-const toggleSpidey = document.querySelector("#puto");
+const toggleSpidey = document.querySelector("#surprise");
 toggleSpidey.onclick = () => {
     document.body.style.background = "url(https://i.kym-cdn.com/photos/images/facebook/000/307/686/60e.png)";
-    upperDisplay.innerText = "puto"
-    display.innerText = "el que lee";
+    upperDisplay.innerText = "I WANT PICTURES"
+    display.innerText = "OF SPIDERMAN";
     setTimeout(() => (document.body.style.background = "",
     upperDisplay.innerText = "", display.innerText = ""), 1000);
 }

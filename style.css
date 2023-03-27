@@ -57,8 +57,8 @@ body{
 }
 
 button{
-    width: min(75px, 5.5vw);
-    height: min(75px, 5.5vw);
+    width: min(75px, 5.2vw);
+    height: min(75px, 5.2vw);
     background-color: #413F42;
     border-radius: 50%;
     color: white;
